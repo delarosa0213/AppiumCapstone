@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-05-12T03:02:53 PST" name="Default suite" finished-at="2023-05-12T03:03:56 PST" duration-ms="63088">
+    <groups>
+    </groups>
+    <test started-at="2023-05-12T03:02:53 PST" name="Default test" finished-at="2023-05-12T03:03:56 PST" duration-ms="63088">
+      <class name="Android.tests.Test.BaseClass">
+        <test-method is-config="true" signature="setup()[pri:0, instance:Android.tests.Test.BaseClass@1e0b4072]" started-at="2023-05-12T03:02:53 PST" name="setup" finished-at="2023-05-12T03:02:53 PST" duration-ms="13" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="applLaunch()[pri:1, instance:Android.tests.Test.BaseClass@1e0b4072]" started-at="2023-05-12T03:02:53 PST" name="applLaunch" finished-at="2023-05-12T03:03:06 PST" duration-ms="12975" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- applLaunch -->
+        <test-method signature="Register()[pri:2, instance:Android.tests.Test.BaseClass@1e0b4072]" started-at="2023-05-12T03:03:06 PST" name="Register" finished-at="2023-05-12T03:03:18 PST" duration-ms="11553" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Register -->
+        <test-method signature="Login()[pri:3, instance:Android.tests.Test.BaseClass@1e0b4072]" started-at="2023-05-12T03:03:18 PST" name="Login" finished-at="2023-05-12T03:03:23 PST" duration-ms="4570" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="transactHistory()[pri:4, instance:Android.tests.Test.BaseClass@1e0b4072]" started-at="2023-05-12T03:03:23 PST" name="transactHistory" finished-at="2023-05-12T03:03:31 PST" duration-ms="8902" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- transactHistory -->
+        <test-method signature="transactHistory2()[pri:5, instance:Android.tests.Test.BaseClass@1e0b4072]" started-at="2023-05-12T03:03:32 PST" name="transactHistory2" finished-at="2023-05-12T03:03:41 PST" duration-ms="9643" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- transactHistory2 -->
+        <test-method signature="trans()[pri:6, instance:Android.tests.Test.BaseClass@1e0b4072]" started-at="2023-05-12T03:03:41 PST" name="trans" finished-at="2023-05-12T03:03:49 PST" duration-ms="7547" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- trans -->
+        <test-method signature="delAccount()[pri:7, instance:Android.tests.Test.BaseClass@1e0b4072]" started-at="2023-05-12T03:03:49 PST" name="delAccount" finished-at="2023-05-12T03:03:51 PST" duration-ms="2426" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- delAccount -->
+        <test-method signature="testLogin()[pri:8, instance:Android.tests.Test.BaseClass@1e0b4072]" started-at="2023-05-12T03:03:51 PST" name="testLogin" finished-at="2023-05-12T03:03:56 PST" duration-ms="5300" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+      </class> <!-- Android.tests.Test.BaseClass -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
