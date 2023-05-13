@@ -2,6 +2,10 @@ package Android.tests.Pages;
 
 import org.apache.poi.ss.usermodel.*;
 import org.openqa.selenium.By;
+
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
 import io.appium.java_client.android.AndroidDriver;
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,37 +13,44 @@ import java.io.IOException;
 
 public class Register_PageExcel {
     private AndroidDriver driver;
+    ExtentTest test;
 
-    public Register_PageExcel(AndroidDriver driver) {
+    public Register_PageExcel(AndroidDriver driver, ExtentTest test) {
         this.driver = driver;
+        this.test = test;
     }
 
-    public void btnReg(String firstName, String lastName, String email, String iban, String password) {
+    public void btnReg(String firstName, String lastName, String email, String iban, String password) throws InterruptedException {
         driver.findElement(By.id("com.example.proiectmobilebanking:id/register_button_main")).click();
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
+        
+        Thread.sleep(2000);
+        
         driver.findElement(By.id("com.example.proiectmobilebanking:id/et_firstName")).sendKeys(firstName);
+        test.log(LogStatus.INFO, "Successfully get the data 'FIRSTNAME' from excel file");
+        
         driver.findElement(By.id("com.example.proiectmobilebanking:id/et_lastName")).sendKeys(lastName);
+        test.log(LogStatus.INFO, "Successfully get the data 'LASTNAME' from excel file");
+        
         driver.findElement(By.id("com.example.proiectmobilebanking:id/et_email")).sendKeys(email);
+        test.log(LogStatus.INFO, "Successfully get the data 'EMAIL' from excel file");
+        
         driver.findElement(By.id("com.example.proiectmobilebanking:id/et_iban")).sendKeys(iban);
+        test.log(LogStatus.INFO, "Successfully get the data 'IBAN' from excel file");
+        
         driver.findElement(By.id("com.example.proiectmobilebanking:id/et_password")).sendKeys(password);
+        test.log(LogStatus.INFO, "Successfully get the data 'PASSWORD' from excel file");
+        
         driver.findElement(By.id("com.example.proiectmobilebanking:id/et_confirmPassword")).sendKeys(password);
+        test.log(LogStatus.INFO, "Successfully get the data 'PASSWORD' from excel file and used it in confirming password!");
 
         driver.findElement(By.id("com.example.proiectmobilebanking:id/rb_male")).click();
-
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        
+        Thread.sleep(2000);
+        
         driver.findElement(By.id("com.example.proiectmobilebanking:id/bt_register")).click();
     }
 
-    public void registerUserFromExcel(String filePath, int row) throws IOException {
+    public void registerUserFromExcel(String filePath, int row) throws IOException, InterruptedException {
         // Open the Excel file
         FileInputStream file = new FileInputStream(new File(filePath));
 
@@ -67,5 +78,6 @@ public class Register_PageExcel {
 
         // Fill in the registration form
         btnReg(firstName, lastName, email, iban, password);
+        test.log(LogStatus.PASS, "Successfully pass the information!");
     }
 }

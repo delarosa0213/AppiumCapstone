@@ -9,29 +9,33 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.By;
 
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
 import io.appium.java_client.android.AndroidDriver;
 
 public class Login_Page {
     private AndroidDriver driver;
+    ExtentTest test;
 
-    public Login_Page(AndroidDriver driver) 
+    public Login_Page(AndroidDriver driver, ExtentTest test) 
     {
         this.driver = driver;
+        this.test = test;
     }
 
-    public void credentials(String email, String password) {
+    public void credentials(String email, String password) throws InterruptedException {
     	driver.findElement(By.id("com.example.proiectmobilebanking:id/tv_username")).sendKeys(email);
+    	test.log(LogStatus.INFO,"Username from excel file: " + email);
+    	
     	driver.findElement(By.id("com.example.proiectmobilebanking:id/tv_password")).sendKeys(password);
+    	test.log(LogStatus.INFO,"Password from excel file: " + password);
     	
-    	try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Thread.sleep(3000);
     }
+		
     	
-    	public void getUserFromExcel(String filePath, int row) throws IOException {
+    	public void getUserFromExcel(String filePath, int row) throws IOException, InterruptedException {
             // Open the Excel file
             FileInputStream file = new FileInputStream(new File(filePath));
 
@@ -53,6 +57,7 @@ public class Login_Page {
             
 
         	driver.findElement(By.id("com.example.proiectmobilebanking:id/login_button")).click();
+        	test.log(LogStatus.PASS, "Successfully passed the information from excel!");
     }
 }
     

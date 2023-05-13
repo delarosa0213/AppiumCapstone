@@ -3,15 +3,20 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Android.tests.Test.BaseClass">
+      <class name="Android.tests.Test.AppiumAndroidPhoneMain">
         <methods>
           <include name="testLogin"/>
-          <include name="delAccount"/>
-          <include name="transactHistory"/>
+          <include name="transactHistory2"/>
           <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="delAccount"/>
+          <include name="Login"/>
+          <include name="quit"/>
+          <include name="transactHistory"/>
+          <include name="Register"/>
           <include name="trans"/>
         </methods>
-      </class> <!-- Android.tests.Test.BaseClass -->
+      </class> <!-- Android.tests.Test.AppiumAndroidPhoneMain -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
