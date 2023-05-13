@@ -12,67 +12,92 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
 import io.appium.java_client.android.AndroidDriver;
 
 public class Transaction_Page {
 	private AndroidDriver driver;
+	ExtentTest test;
 	
-	public Transaction_Page(AndroidDriver driver) {
+	public Transaction_Page(AndroidDriver driver, ExtentTest test) {
 	    this.driver = driver;
+	    this.test = test;
 	  }
 	
-	public void transacHistory1(String firstAccName, String iban1, String amount1) {
+	public void transacHistory1(String firstAccName, String iban1, String amount1) throws InterruptedException {
 		
     	driver.findElement(By.id("com.example.proiectmobilebanking:id/btnHistory")).click();
+    	Thread.sleep(2000);
+    	
     	driver.findElement(By.id("com.example.proiectmobilebanking:id/fabAdd")).click();
     	
-    	try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	Thread.sleep(2000);
+		
     	//Add 1st acc
     	driver.findElement(By.id("com.example.proiectmobilebanking:id/et_beneficiary2")).sendKeys(firstAccName);
+    	test.log(LogStatus.INFO, "Got the data from Excel file: First Account Name");
+    	
     	driver.findElement(By.id("com.example.proiectmobilebanking:id/et_accountNumber2")).sendKeys(iban1);
+    	test.log(LogStatus.INFO, "Got the data from Excel file: IBAN");
+    	
     	driver.findElement(By.id("com.example.proiectmobilebanking:id/et_amount2")).sendKeys(amount1);
+    	test.log(LogStatus.INFO, "Got the data from Excel file: amount");
+    	
     	driver.findElement(By.id("com.example.proiectmobilebanking:id/btn_send2")).click();
     	
-    	try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Thread.sleep(2000);
+		
 	}
-		public void transacHistory2(String secAccName, String iban2, String amount2) {
-
+		public void transacHistory2(String secAccName, String iban2, String amount2) throws InterruptedException {
+		
+		Thread.sleep(1000);
+			
 	    driver.findElement(By.id("com.example.proiectmobilebanking:id/fabAdd")).click();
-	    try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-				// TODO Auto-generated catch block				
-			e.printStackTrace();
-		}	
+	
+		Thread.sleep(2000);
+			
     	driver.findElement(By.id("com.example.proiectmobilebanking:id/et_beneficiary2")).sendKeys(secAccName);
-    	driver.findElement(By.id("com.example.proiectmobilebanking:id/et_accountNumber2")).sendKeys(iban2);
-    	driver.findElement(By.id("com.example.proiectmobilebanking:id/et_amount2")).sendKeys(amount2);
+    	test.log(LogStatus.INFO, "Got the data from Excel file: Second Account Name");
     	
+    	driver.findElement(By.id("com.example.proiectmobilebanking:id/et_accountNumber2")).sendKeys(iban2);
+    	test.log(LogStatus.INFO, "Got the data from Excel file: IBAN");
+    	
+    	driver.findElement(By.id("com.example.proiectmobilebanking:id/et_amount2")).sendKeys(amount2);
+    	test.log(LogStatus.INFO, "Got the data from Excel file: amount");
     	
     	driver.findElement(By.id("com.example.proiectmobilebanking:id/spinner_status")).click();
     	driver.findElement(By.xpath("(//android.widget.TextView)[2]")).click();
+    	
+    	test.log(LogStatus.INFO, "Change from 'Send' to 'Ask'");
+    	
     	driver.findElement(By.id("com.example.proiectmobilebanking:id/btn_send2")).click();
+    	Thread.sleep(2000);
     	
     	String firstAcc = driver.findElement(By.xpath("(//android.widget.TextView)[1]")).getText();
     	System.out.println("Validated First Account: " + firstAcc);
-    	
+
+    	if (firstAcc != null && !firstAcc.isEmpty()) {
+    	    test.log(LogStatus.PASS, "Validated First Account: " + firstAcc);
+    	} else {
+    	    test.log(LogStatus.FAIL, "No account found");
+    	}
+
     	driver.findElement(By.xpath("(//android.view.ViewGroup)[4]")).click();
     	String secAcc = driver.findElement(By.xpath("(//android.widget.TextView)[5]")).getText();
     	System.out.println("Validated Second Account: " + secAcc);
+    	
+
+    	if (secAcc != null && !secAcc.isEmpty()) {
+    	    test.log(LogStatus.PASS, "Validated First Account: " + secAcc);
+    	} else {
+    	    test.log(LogStatus.FAIL, "No account found");
+    	}
     }
 
 	
-	public void getUserFromExcel1(String filePath, int row2) throws IOException {
+	public void getUserFromExcel1(String filePath, int row2) throws IOException, InterruptedException {
         // Open the Excel file
         FileInputStream file = new FileInputStream(new File(filePath));
 
@@ -105,9 +130,12 @@ public class Transaction_Page {
 
         // Fill in the registration form
         transacHistory1(firstAccName, iban1, amount1);
+        test.log(LogStatus.PASS, "Successfully got the data from excel");
+
+	    
 	}
         
-      public void getUserFromExcel2(String filePath, int row3) throws IOException {
+      public void getUserFromExcel2(String filePath, int row3) throws IOException, InterruptedException {
             // Open the Excel file
     	FileInputStream file = new FileInputStream(new File(filePath));
 
@@ -140,23 +168,24 @@ public class Transaction_Page {
         file.close();
         
         transacHistory2(secAccName, iban2, amount2);
+        test.log(LogStatus.PASS, "Successfully got the data from excel");
 
        
  }
 
-    public void transactions(String amountSearch) {
+    public void transactions(String amountSearch) throws InterruptedException {
     	driver.navigate().back();
     	
     	driver.findElement(By.id("com.example.proiectmobilebanking:id/btnRaport")).click();
-    	try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	driver.findElement(By.id("com.example.proiectmobilebanking:id/btnRaportAmount")).click();
+		
+    	Thread.sleep(3000);
+    	
+		driver.findElement(By.id("com.example.proiectmobilebanking:id/btnRaportAmount")).click();
+		
+		Thread.sleep(3000);
     	
     	driver.findElement(By.id("com.example.proiectmobilebanking:id/etRaportAmount")).sendKeys(amountSearch);
+    	test.log(LogStatus.INFO, "Got the data from Excel file");
     	
     	driver.findElement(By.id("com.example.proiectmobilebanking:id/btnViewRaportAmount")).click();
     	
@@ -177,7 +206,7 @@ public class Transaction_Page {
     	}
     	 
 }
-    public void searchAmount(String filePath, int row4) throws IOException{
+    public void searchAmount(String filePath, int row4) throws IOException, InterruptedException{
     	// Open the Excel file
         FileInputStream file = new FileInputStream(new File(filePath));
 
@@ -196,6 +225,7 @@ public class Transaction_Page {
         }
         file.close();
         transactions(amountSearch);
+        test.log(LogStatus.PASS, "Successfully got the data from excel");
 	}
     
 }
