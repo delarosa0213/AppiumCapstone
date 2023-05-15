@@ -19,13 +19,13 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Android.tests.Pages.AccountDeletion_Page;
-import Android.tests.Pages.AddAccount_Page;
 import Android.tests.Pages.Login_Page;
 import Android.tests.Pages.Register_PageExcel;
 import Android.tests.Pages.Transaction_Page;
 
 public class AppiumAndroidPhoneMain {
 	private AndroidDriver driver;
+	private static File directory;
 	static ExtentReports extent;
     static ExtentTest test;
     
@@ -33,23 +33,14 @@ public class AppiumAndroidPhoneMain {
 	 //private Register_Page reg;
 	 private Register_PageExcel reg;
 	 private Login_Page login;
-	 private AddAccount_Page addAcc;
 	 private Transaction_Page transact;
 	 private AccountDeletion_Page accDel;
 
-//	 configureAppLaunch();
-//     btnReg();
-//     credentials();
-//     transacHistory();
-//     transactions();
-//     DeleteAcc();
-//     credentials();
-	
 	 @BeforeClass
 	 public void setup() {
 		 String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date(System.currentTimeMillis()));
 	     String folderName = "AndroidPhoneTest-" + timeStamp;
-	     File directory = new File("results/Android/Android Phone/" + folderName);
+	     directory = new File("results/Android/Android Phone/" + folderName);
       if (!directory.exists()) {
     	  directory.mkdirs();
 	 }
@@ -70,32 +61,34 @@ public class AppiumAndroidPhoneMain {
   }
 	 @Test(priority = 2)
 	 public void Register() throws IOException, InterruptedException {
-	     Register_PageExcel reg = new Register_PageExcel(driver, test);
+	     Register_PageExcel reg = new Register_PageExcel(driver, test, directory);
+	     //reg.btnReg(firstName, lastName, email, iban, password, directory);
 	     reg.registerUserFromExcel("src/test/java/utils/loginCredentials.xlsx", 1);
+	     
 	 }
 
 	 @Test(priority = 3)
 	 public void Login() throws IOException, InterruptedException {
-		 Login_Page login =  new Login_Page(driver, test);
+		 Login_Page login =  new Login_Page(driver, test, directory);
 		 login.getUserFromExcel("src/test/java/utils/loginCredentials.xlsx", 1);
 		 test.log(LogStatus.PASS, "Login Successfully!");
 	 }
 	 @Test(priority = 4)
 	 public void transactHistory() throws IOException, InterruptedException {
-		 Transaction_Page transact = new Transaction_Page(driver, test);
-		 transact.getUserFromExcel1("src/test/java/utils/credentials.xlsx", 2);
+		 Transaction_Page transact = new Transaction_Page(driver, test, directory);
+		 transact.getUserFromExcel1("src/test/java/utils/beneficiary accs.xlsx", 1);
 		 test.log(LogStatus.PASS, "First Account Added!");
 	 }
 	 @Test(priority = 5)
 	 public void transactHistory2() throws IOException, InterruptedException {
-		 Transaction_Page transact = new Transaction_Page(driver, test);
-		 transact.getUserFromExcel2("src/test/java/utils/credentials.xlsx", 3);
+		 Transaction_Page transact = new Transaction_Page(driver, test, directory);
+		 transact.getUserFromExcel2("src/test/java/utils/beneficiary accs.xlsx", 2);
 		 test.log(LogStatus.PASS, "Second Account Added!");
 	 }
 	 @Test(priority = 6)
 	 public void trans() throws IOException, InterruptedException {
-		 Transaction_Page transact = new Transaction_Page(driver, test);
-		 transact.searchAmount("src/test/java/utils/credentials.xlsx", 4);
+		 Transaction_Page transact = new Transaction_Page(driver, test, directory);
+		 transact.searchAmount("src/test/java/utils/raport filter.xlsx", 1);
 		 test.log(LogStatus.INFO, "Amount transfered reports");
 	 }	
 	 @Test(priority = 7)
@@ -106,7 +99,7 @@ public class AppiumAndroidPhoneMain {
 	 }
 	 @Test(priority = 8)
 	 public void testLogin() throws IOException, InterruptedException {
-		 Login_Page login =  new Login_Page(driver, test);
+		 Login_Page login =  new Login_Page(driver, test, directory);
 		 login.getUserFromExcel("src/test/java/utils/loginCredentials.xlsx", 1);
 		 test.log(LogStatus.ERROR, "The account was deleted, please create a new account!");
 		 extent.endTest(test);

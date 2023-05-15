@@ -2,52 +2,52 @@
 <testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-05-13T23:36:34 PST" name="Default suite" finished-at="2023-05-13T23:37:41 PST" duration-ms="66730">
+  <suite started-at="2023-05-15T15:38:29 PST" name="Default suite" finished-at="2023-05-15T15:39:36 PST" duration-ms="66911">
     <groups>
     </groups>
-    <test started-at="2023-05-13T23:36:34 PST" name="Default test" finished-at="2023-05-13T23:37:41 PST" duration-ms="66730">
+    <test started-at="2023-05-15T15:38:29 PST" name="Default test" finished-at="2023-05-15T15:39:36 PST" duration-ms="66911">
       <class name="Android.tests.Test.AppiumAndroidTabletMain">
-        <test-method is-config="true" signature="setup()[pri:0, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-13T23:36:34 PST" name="setup" finished-at="2023-05-13T23:36:39 PST" duration-ms="5327" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-15T15:38:29 PST" name="setup" finished-at="2023-05-15T15:38:34 PST" duration-ms="5338" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="applLaunch()[pri:1, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-13T23:36:39 PST" name="applLaunch" finished-at="2023-05-13T23:36:45 PST" duration-ms="5962" status="PASS">
+        <test-method signature="applLaunch()[pri:1, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-15T15:38:34 PST" name="applLaunch" finished-at="2023-05-15T15:38:41 PST" duration-ms="7047" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- applLaunch -->
-        <test-method signature="Register()[pri:2, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-13T23:36:45 PST" name="Register" finished-at="2023-05-13T23:36:57 PST" duration-ms="11661" status="PASS">
+        <test-method signature="Register()[pri:2, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-15T15:38:41 PST" name="Register" finished-at="2023-05-15T15:38:51 PST" duration-ms="9926" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Register -->
-        <test-method signature="Login()[pri:3, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-13T23:36:57 PST" name="Login" finished-at="2023-05-13T23:37:02 PST" duration-ms="5064" status="PASS">
+        <test-method signature="Login()[pri:3, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-15T15:38:51 PST" name="Login" finished-at="2023-05-15T15:38:56 PST" duration-ms="4915" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="transactHistory()[pri:4, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-13T23:37:02 PST" name="transactHistory" finished-at="2023-05-13T23:37:12 PST" duration-ms="9659" status="PASS">
+        <test-method signature="transactHistory()[pri:4, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-15T15:38:56 PST" name="transactHistory" finished-at="2023-05-15T15:39:05 PST" duration-ms="8799" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- transactHistory -->
-        <test-method signature="transactHistory2()[pri:5, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-13T23:37:12 PST" name="transactHistory2" finished-at="2023-05-13T23:37:24 PST" duration-ms="11827" status="PASS">
+        <test-method signature="transactHistory2()[pri:5, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-15T15:39:05 PST" name="transactHistory2" finished-at="2023-05-15T15:39:19 PST" duration-ms="13615" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- transactHistory2 -->
-        <test-method signature="trans()[pri:6, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-13T23:37:24 PST" name="trans" finished-at="2023-05-13T23:37:33 PST" duration-ms="9275" status="PASS">
+        <test-method signature="trans()[pri:6, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-15T15:39:19 PST" name="trans" finished-at="2023-05-15T15:39:28 PST" duration-ms="9332" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- trans -->
-        <test-method signature="delAccount()[pri:7, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-13T23:37:33 PST" name="delAccount" finished-at="2023-05-13T23:37:35 PST" duration-ms="1675" status="PASS">
+        <test-method signature="delAccount()[pri:7, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-15T15:39:28 PST" name="delAccount" finished-at="2023-05-15T15:39:30 PST" duration-ms="1741" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- delAccount -->
-        <test-method signature="testLogin()[pri:8, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-13T23:37:35 PST" name="testLogin" finished-at="2023-05-13T23:37:40 PST" duration-ms="5397" status="PASS">
+        <test-method signature="testLogin()[pri:8, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-15T15:39:30 PST" name="testLogin" finished-at="2023-05-15T15:39:35 PST" duration-ms="5242" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testLogin -->
-        <test-method is-config="true" signature="quit()[pri:0, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-13T23:37:40 PST" name="quit" finished-at="2023-05-13T23:37:40 PST" duration-ms="364" status="PASS">
+        <test-method is-config="true" signature="quit()[pri:0, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-15T15:39:35 PST" name="quit" finished-at="2023-05-15T15:39:35 PST" duration-ms="334" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quit -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-13T23:37:40 PST" name="tearDown" finished-at="2023-05-13T23:37:41 PST" duration-ms="376" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Android.tests.Test.AppiumAndroidTabletMain@6340e5f0]" started-at="2023-05-15T15:39:35 PST" name="tearDown" finished-at="2023-05-15T15:39:36 PST" duration-ms="453" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

@@ -4,10 +4,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -17,19 +20,29 @@ import io.appium.java_client.android.AndroidDriver;
 public class Login_Page {
     private AndroidDriver driver;
     ExtentTest test;
+    private File directory; 
 
-    public Login_Page(AndroidDriver driver, ExtentTest test) 
+    public Login_Page(AndroidDriver driver, ExtentTest test, File directory) 
     {
         this.driver = driver;
         this.test = test;
+        this.directory = directory;
     }
 
-    public void credentials(String email, String password) throws InterruptedException {
+    public void credentials(String email, String password) throws InterruptedException, IOException {
     	driver.findElement(By.id("com.example.proiectmobilebanking:id/tv_username")).sendKeys(email);
     	test.log(LogStatus.INFO,"Username from excel file: " + email);
     	
     	driver.findElement(By.id("com.example.proiectmobilebanking:id/tv_password")).sendKeys(password);
     	test.log(LogStatus.INFO,"Password from excel file: " + password);
+    	
+    	File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        String screenshotPath = directory.getAbsolutePath() + "/screenshots/Login_Page.png";
+        FileUtils.copyFile(screenshotFile, new File(screenshotPath));
+
+        // Log the screenshot in the report
+        test.log(LogStatus.INFO, "Login Page: " + test.addScreenCapture(screenshotPath));
+
     	
 		Thread.sleep(3000);
     }
